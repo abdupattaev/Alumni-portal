@@ -1,0 +1,47 @@
+spring:
+  application:
+    name: alumni-portal
+  datasource:
+    password: secret
+    url: jdbc:postgresql://localhost:5433/alumni-portal
+    username: admin
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL94Dialect
+        format_sql: true
+    show-sql: false
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: always
+  rabbitmq:
+    hostname: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+server:
+  port: 8080
+  error:
+    include-message: always
+    include-binding-errors: always
+    include-exception: false
+    include-stacktrace: ON_PARAM
+
+
+aws:
+  zone: us-east-1
+  s3:
+    access_key:
+    secret_key:
+
+keycloak:
+  realm: waa
+  auth-server-url: http://localhost:8081
+  resource: backend
+  public-client: true
+  bearer-only: true
+
